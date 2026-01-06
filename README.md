@@ -14,6 +14,8 @@
 
 [🎯 Live Demo](#) • [📚 Documentation](#features) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
 
+![SysLab Hero](docs/images/syslab-hero.png)
+
 ---
 
 </div>
@@ -21,6 +23,15 @@
 ## ✨ What is SysLab?
 
 SysLab is a **cutting-edge web application** that brings computer science systems to life through interactive visualizations and real-time simulations. Built with modern web technologies and premium UI/UX design, it transforms complex theoretical concepts into engaging, hands-on learning experiences.
+
+### 🎬 See It In Action
+
+<div align="center">
+
+![CPU Scheduler Demo](docs/images/cpu-scheduler.png)
+*CPU Scheduling Simulator with real-time Gantt chart visualization*
+
+</div>
 
 <div align="center">
 
