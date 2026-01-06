@@ -1,0 +1,67 @@
+
+> vite_react_shadcn_ts@0.0.0 lint
+> eslint .
+
+
+R:\p\Engineers control panel\src\components\modules\DatabaseEngine\DatabaseEngine.tsx
+  23:111  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+R:\p\Engineers control panel\src\components\modules\DatabaseEngine\QueryPanel.tsx
+  10:100  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+R:\p\Engineers control panel\src\components\ui\badge.tsx
+  36:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\button.tsx
+  70:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\command.tsx
+  24:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+R:\p\Engineers control panel\src\components\ui\form.tsx
+  168:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\navigation-menu.tsx
+  119:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\sidebar.tsx
+  760:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\sonner.tsx
+  29:19  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\components\ui\textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+R:\p\Engineers control panel\src\components\ui\toggle.tsx
+  43:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+R:\p\Engineers control panel\src\core\types.ts
+    7:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  148:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  153:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  156:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  166:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+R:\p\Engineers control panel\src\utils\compiler.ts
+   27:23  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   49:9   error  'column' is never reassigned. Use 'const' instead  prefer-const
+  260:11  error  Unexpected lexical declaration in case block       no-case-declarations
+  261:11  error  Unexpected lexical declaration in case block       no-case-declarations
+  271:11  error  Unexpected lexical declaration in case block       no-case-declarations
+  276:11  error  Unexpected lexical declaration in case block       no-case-declarations
+
+R:\p\Engineers control panel\src\utils\database-engine.ts
+  55:96  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+R:\p\Engineers control panel\src\utils\network-simulator.ts
+  26:9  error  'ackNumber' is never reassigned. Use 'const' instead  prefer-const
+
+R:\p\Engineers control panel\tailwind.config.ts
+  106:39  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 27 problems (20 errors, 7 warnings)
+  2 errors and 0 warnings potentially fixable with the `--fix` option.
+
