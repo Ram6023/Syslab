@@ -12,7 +12,7 @@
 
 **An interactive, premium systems engineering laboratory featuring advanced visualizations and real-time simulations**
 
-[🎯 Live Demo](#) • [📚 Documentation](#features) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
+[🎯 Live Demo](https://ram6023.github.io/Syslab/) • [📚 Documentation](#features) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
 
 ![SysLab Hero](docs/images/syslab-hero.png)
 
