@@ -1,305 +1,374 @@
-# Engineer's Control Panel
+<div align="center">
 
-A comprehensive, single-page web application that integrates multiple core computer science systems simulators into one unified interface. Built with React, TypeScript, and a focus on correctness, determinism, metrics, and visualization.
+# 🚀 SysLab
 
-## 🎯 Overview
+### *From Scheduling to Storage: Systems, Explained*
 
-This project provides an interactive systems engineering laboratory with five integrated modules:
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-1. **CPU Scheduling & Process Control** - Process scheduling algorithms with Gantt chart visualization
-2. **Memory Management & Page Replacement** - Page replacement algorithms with frame-by-frame visualization
-3. **Network Protocol & Packet Flow** - TCP-like connection lifecycle simulation with packet flow animation
-4. **Compiler Playground** - Lexical analysis, parsing, AST generation, and execution tracing
-5. **Database Engine Internals** - B-Tree indexing, query execution, and access pattern visualization
+**An interactive, premium systems engineering laboratory featuring advanced visualizations and real-time simulations**
 
-## 🏗️ Architecture
+[🎯 Live Demo](#) • [📚 Documentation](#features) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
 
-### Core Infrastructure
+---
 
-- **Simulation Engine** (`src/core/simulation-engine.ts`): Discrete event simulation engine with time-stepped execution
-- **Metrics Engine** (`src/core/metrics-engine.ts`): Unified metrics collection and export system
-- **Type System** (`src/core/types.ts`): Comprehensive TypeScript types for all modules
+</div>
 
-### Module Structure
+## ✨ What is SysLab?
 
-Each module follows a consistent architecture:
-- **Utility Class**: Core algorithm implementation (e.g., `cpu-scheduler.ts`, `memory-manager.ts`)
-- **Main Component**: Module entry point with tabs for configuration, visualization, and metrics
-- **Sub-components**: Specialized components for control panels, visualizations, and data display
+SysLab is a **cutting-edge web application** that brings computer science systems to life through interactive visualizations and real-time simulations. Built with modern web technologies and premium UI/UX design, it transforms complex theoretical concepts into engaging, hands-on learning experiences.
 
-### UI/UX Features
+<div align="center">
 
-- **Custom Cursor**: Tailless custom cursor with hover and click states
-- **Parallax Scrolling**: Subtle parallax background effects
-- **Smooth Animations**: Fade-in, slide-up, scale-in animations throughout
-- **Responsive Design**: Works on desktop and tablet devices
-- **Engineering-First Design**: Clean, minimal UI focused on functionality
+### 🎨 **Premium Features**
 
-## 📦 Modules
+| Feature | Description |
+|---------|-------------|
+| 🎯 **Interactive 3D Background** | Hover-responsive grid with vibrant color transitions |
+| 💎 **Glassmorphism UI** | Modern, translucent design with backdrop blur effects |
+| ⚡ **Real-time Simulations** | Live algorithm execution with step-by-step visualization |
+| 🎨 **Premium Aesthetics** | Neon gradients, smooth animations, and glowing effects |
+| 📊 **Advanced Metrics** | Comprehensive performance analytics and export capabilities |
 
-### 1. CPU Scheduling & Process Control
+</div>
 
-**Algorithms Implemented:**
-- FCFS (First Come First Served)
-- SJF Non-Preemptive (Shortest Job First)
-- SJF Preemptive
-- Round Robin
-- Priority Non-Preemptive
-- Priority Preemptive
+---
 
-**Features:**
-- User-defined processes with arrival time, burst time, and priority
-- Adjustable time quantum for Round Robin
-- Gantt chart timeline visualization
-- Process state transitions
-- Context switch markers
-- Comprehensive metrics (waiting time, turnaround time, CPU utilization, throughput)
+## 🎯 Features
 
-**Example Input:**
-```
-Process 1: Arrival=0, Burst=5, Priority=2
-Process 2: Arrival=1, Burst=3, Priority=1
-Process 3: Arrival=2, Burst=8, Priority=3
-Process 4: Arrival=3, Burst=6, Priority=2
-```
+<table>
+<tr>
+<td width="50%">
 
-### 2. Memory Management & Page Replacement
+### 🖥️ **CPU Scheduling & Process Control**
 
-**Algorithms Implemented:**
-- FIFO (First In First Out)
-- LRU (Least Recently Used)
-- Optimal
+Visualize how operating systems manage processes with **6 scheduling algorithms**:
+
+- ✅ FCFS (First Come First Served)
+- ✅ SJF Non-Preemptive
+- ✅ SJF Preemptive  
+- ✅ Round Robin
+- ✅ Priority Non-Preemptive
+- ✅ Priority Preemptive
 
 **Features:**
-- Configurable number of frames (1-10)
-- Custom page reference string input
-- Frame-by-frame memory state visualization
-- Page hit/fault indicators
-- Eviction reasoning per step
-- Step-by-step playback with auto-play
+- 📊 Interactive Gantt chart timeline
+- 🔄 Real-time process state tracking
+- 📈 Performance metrics (waiting time, turnaround, CPU utilization)
+- ⚡ Context switch visualization
 
-**Example Input:**
-```
-Page Reference String: 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1
-Number of Frames: 3
-Algorithm: LRU
-```
+</td>
+<td width="50%">
 
-### 3. Network Protocol & Packet Flow Simulator
+### 💾 **Memory Management & Page Replacement**
 
-**Features:**
-- TCP-like 3-way handshake (SYN, SYN-ACK, ACK)
-- Reliable data transfer simulation
-- Configurable packet loss rate (0-100%)
-- Artificial latency injection
-- Retransmission logic with timeout
-- Congestion window evolution (slow start, congestion avoidance)
-- Connection termination (FIN, ACK)
-- Packet flow animation between client and server
-- Sequence numbers and ACK tracking
+Explore memory management with **3 page replacement algorithms**:
 
-**Example Configuration:**
-```
-Data Size: 10 packets
-Packet Loss Rate: 10%
-Latency: 50ms
-Window Size: 4
-```
-
-### 4. Compiler Playground
+- ✅ FIFO (First In First Out)
+- ✅ LRU (Least Recently Used)
+- ✅ Optimal
 
 **Features:**
-- Lexical analysis (tokenization)
-- Syntax parsing (AST generation)
-- Semantic validation
-- Interpreter execution
-- Step-by-step execution trace
-- Variable state tracking
-- Error reporting (lexical, syntax, semantic, runtime)
+- 🎬 Frame-by-frame animation
+- 📊 Page hit/fault indicators
+- 🔍 Eviction reasoning per step
+- ⏯️ Step-by-step playback controls
 
-**Supported Language Features:**
-- Variable assignment: `let x = 10;`
-- Arithmetic operations: `+`, `-`, `*`, `/`
-- Print statements: `print(x);`
-- Expressions with parentheses
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-**Example Code:**
-```javascript
-let x = 10;
-let y = 20;
-let z = x + y;
-print(z);
-print(x * y);
-```
+### 🌐 **Network Protocol & Packet Flow**
 
-### 5. Database Engine Internals
+Simulate TCP-like network behavior with:
+
+- ✅ 3-way handshake (SYN, SYN-ACK, ACK)
+- ✅ Reliable data transfer
+- ✅ Packet loss simulation
+- ✅ Retransmission logic
+- ✅ Congestion control
 
 **Features:**
-- In-memory key-value store
-- B-Tree index on ID field
-- Query engine with SELECT and PROJECT operations
-- Query execution plan visualization
-- Index hit/miss tracking
-- Disk I/O simulation
-- Query latency measurement
+- 📡 Animated packet flow
+- 🔄 Sequence number tracking
+- 📊 Congestion window evolution
+- ⚠️ Configurable packet loss rate
 
-**Supported Queries:**
-- SELECT with conditions: `SELECT WHERE id = 1`
-- SELECT with operators: `=`, `>`, `<`, `>=`, `<=`
-- PROJECT: Returns all records
+</td>
+<td width="50%">
 
-**Example Query:**
-```
-Operation: SELECT
-Field: value
-Operator: >
-Value: 200
-```
+### 🔧 **Compiler Playground**
 
-## 🚀 Getting Started
+Build and execute code with a **4-phase compiler**:
+
+- ✅ Lexical Analysis (Tokenization)
+- ✅ Syntax Parsing (AST Generation)
+- ✅ Semantic Validation
+- ✅ Interpreter Execution
+
+**Features:**
+- 📝 Live code editor
+- 🌳 AST visualization
+- 🔍 Step-by-step execution trace
+- 🐛 Comprehensive error reporting
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+### 🗄️ **Database Engine Internals**
+
+Peek inside database operations with:
+
+- ✅ B-Tree index visualization
+- ✅ Query execution planning
+- ✅ Index hit/miss tracking
+- ✅ Disk I/O simulation
+
+**Features:**
+- 🌲 Interactive B-Tree structure
+- 📊 Query performance metrics
+- 🔍 SELECT and PROJECT operations
+- ⚡ Index optimization analysis
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ and npm/yarn
-- Modern web browser (Chrome, Firefox, Edge, Safari)
+```bash
+Node.js 18+ and npm
+```
 
 ### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/Ram6023/Syslab.git
+
+# Navigate to project directory
+cd Syslab
+
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
+```
 
-# Build for production
+### Build for Production
+
+```bash
+# Create optimized production build
 npm run build
 
 # Preview production build
 npm run preview
 ```
 
-### Development
+---
 
-The application runs on `http://localhost:5173` (or the next available port) in development mode.
+## 🎨 Technology Stack
 
-## 📊 Metrics & Export
+<div align="center">
 
-All modules support metrics collection and export:
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | React 18, TypeScript |
+| **Styling** | Tailwind CSS, Custom CSS Variables |
+| **UI Components** | shadcn/ui (Radix UI primitives) |
+| **Animations** | Framer Motion |
+| **Build Tool** | Vite |
+| **Icons** | Lucide React |
+| **State Management** | React Hooks |
 
-- **Real-time Metrics**: Displayed in dedicated metrics tabs
-- **JSON Export**: Export metrics snapshots for analysis
-- **Category-based Metrics**: Performance, efficiency, utilization, and error metrics
+</div>
 
-## 🎨 Design Philosophy
-
-This project prioritizes:
-
-1. **Correctness**: Algorithms are implemented correctly and deterministically
-2. **Visualization**: Every algorithm is observable with step-by-step execution
-3. **Metrics**: Comprehensive metrics collection for analysis
-4. **Modularity**: Easy to add new tools and modules
-5. **Engineering Focus**: Clean, functional UI over visual fluff
-
-## 🛠️ Technology Stack
-
-- **Frontend Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom engineering theme
-- **UI Components**: Radix UI primitives (shadcn/ui)
-- **Icons**: Lucide React
-- **State Management**: React hooks (useState, useEffect)
+---
 
 ## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── modules/
-│   │   ├── CPUScheduler/
-│   │   ├── MemoryManager/
-│   │   ├── NetworkSimulator/
-│   │   ├── CompilerPlayground/
-│   │   └── DatabaseEngine/
-│   ├── shared/
-│   │   ├── CustomCursor.tsx
-│   │   └── MetricsPanel.tsx
-│   └── ui/              # shadcn/ui components
-├── core/
-│   ├── simulation-engine.ts
-│   ├── metrics-engine.ts
-│   └── types.ts
-├── utils/
-│   ├── cpu-scheduler.ts
-│   ├── memory-manager.ts
-│   ├── network-simulator.ts
-│   ├── compiler.ts
-│   └── database-engine.ts
-├── App.tsx
-└── main.tsx
+SysLab/
+├── 📂 src/
+│   ├── 📂 components/
+│   │   ├── 📂 modules/           # Core simulation modules
+│   │   │   ├── CPUScheduler/
+│   │   │   ├── MemoryManager/
+│   │   │   ├── NetworkSimulator/
+│   │   │   ├── CompilerPlayground/
+│   │   │   └── DatabaseEngine/
+│   │   ├── 📂 shared/            # Shared components
+│   │   ├── 📂 ui/                # UI primitives (shadcn/ui)
+│   │   └── 📂 demos/             # Demo components
+│   ├── 📂 core/                  # Core utilities
+│   │   ├── simulation-engine.ts
+│   │   ├── metrics-engine.ts
+│   │   └── types.ts
+│   ├── 📂 utils/                 # Algorithm implementations
+│   ├── App.tsx                   # Main application
+│   ├── main.tsx                  # Entry point
+│   └── index.css                 # Global styles
+├── 📂 public/                    # Static assets
+├── 📂 docs/                      # Documentation
+└── 📄 Configuration files
 ```
+
+---
+
+## 🎯 Design Philosophy
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[Correctness] --> E[SysLab]
+    B[Visualization] --> E
+    C[Metrics] --> E
+    D[Modularity] --> E
+    E --> F[Premium UX]
+```
+
+</div>
+
+### Core Principles
+
+1. **🎯 Correctness First** - Algorithms are deterministic and handle all edge cases
+2. **👁️ Visual Excellence** - Every algorithm is observable with step-by-step execution
+3. **📊 Data-Driven** - Comprehensive metrics collection for analysis
+4. **🧩 Modular Design** - Easy to extend with new tools and modules
+5. **💎 Premium Aesthetics** - Modern UI with glassmorphism and smooth animations
+
+---
+
+## 🎨 UI/UX Highlights
+
+### Premium Visual Elements
+
+- **🌌 Interactive 3D Grid Background** - Hover-responsive boxes with vibrant color transitions
+- **💎 Glassmorphism Effects** - Translucent cards with backdrop blur
+- **✨ Neon Gradients** - Vibrant color schemes with glow effects
+- **🎭 Smooth Animations** - Framer Motion powered transitions
+- **🎯 Custom Cursor** - Interactive cursor with hover states
+- **📱 Responsive Design** - Optimized for desktop and tablet
+
+### Color Palette
+
+```css
+Primary (Neon Green):   hsl(142, 76%, 45%)
+Accent (Electric Cyan): hsl(189, 94%, 55%)
+Background (Deep Dark): hsl(222, 47%, 4%)
+```
+
+---
+
+## 📊 Metrics & Analytics
+
+All modules support comprehensive metrics collection:
+
+- **Real-time Performance Metrics** - Live updates during simulation
+- **JSON Export** - Download metrics for external analysis
+- **Category-based Organization** - Performance, efficiency, utilization, errors
+- **Visual Dashboards** - Interactive charts and graphs
+
+---
 
 ## 🔬 Algorithm Details
 
 ### CPU Scheduling
-
-All algorithms are deterministic and handle edge cases:
-- Idle time when no processes are ready
-- Context switches between processes
-- Preemption logic for preemptive algorithms
+- Handles idle time, context switches, and preemption
 - Time quantum enforcement for Round Robin
+- Deterministic execution with edge case handling
 
 ### Memory Management
-
-Page replacement algorithms track:
-- Frame occupancy state
-- Last used time (for LRU)
-- Future reference distance (for Optimal)
-- Eviction decisions with reasoning
+- Frame occupancy state tracking
+- LRU timestamp management
+- Optimal algorithm with future reference prediction
 
 ### Network Simulation
-
-TCP-like behavior includes:
-- Sequence number management
-- ACK handling
-- Retransmission on timeout
+- TCP-like state machine implementation
+- Sequence number and ACK management
 - Congestion control (slow start, congestion avoidance)
-- Connection state machine
 
 ### Compiler
-
-Three-phase compilation:
-1. **Lexical Analysis**: Tokenizes source code
-2. **Parsing**: Builds Abstract Syntax Tree
-3. **Execution**: Interprets AST with step-by-step tracing
+- Three-phase compilation pipeline
+- AST generation and interpretation
+- Step-by-step execution tracing
 
 ### Database Engine
-
-Query optimization:
-- Index usage for ID lookups
-- Full table scan for other fields
+- B-Tree index implementation
 - Cost-based query planning
-- Access pattern tracking
+- Access pattern visualization
 
-## 🎯 Future Enhancements
+---
 
-Potential additions:
-- More scheduling algorithms (Multilevel Queue, Multilevel Feedback Queue)
-- Additional page replacement algorithms (Clock, Second Chance)
-- More network protocols (UDP simulation, HTTP)
-- Extended compiler features (functions, loops, conditionals)
-- More database operations (JOIN, GROUP BY, aggregation)
-- Export visualizations as images
-- Comparison mode (run multiple algorithms side-by-side)
+## 🚀 Future Enhancements
+
+<details>
+<summary>Click to expand roadmap</summary>
+
+### Planned Features
+
+- [ ] More scheduling algorithms (Multilevel Queue, MLFQ)
+- [ ] Additional page replacement (Clock, Second Chance)
+- [ ] UDP and HTTP protocol simulations
+- [ ] Extended compiler features (functions, loops, conditionals)
+- [ ] Advanced database operations (JOIN, GROUP BY, aggregation)
+- [ ] Export visualizations as images/videos
+- [ ] Side-by-side algorithm comparison mode
+- [ ] Dark/Light theme toggle
+- [ ] Mobile responsive optimizations
+
+</details>
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
 
 ## 📝 License
 
 This project is open source and available for educational and research purposes.
 
+---
+
 ## 🙏 Acknowledgments
 
-Built as a comprehensive systems engineering educational tool, emphasizing correctness and visualization over visual effects.
+Built with ❤️ as a comprehensive systems engineering educational tool, emphasizing:
+- **Correctness** over shortcuts
+- **Visualization** over abstraction  
+- **Understanding** over memorization
 
 ---
 
-**Note**: This is an engineering-focused tool. Every design decision prioritizes correctness, determinism, and observability over visual aesthetics.
+<div align="center">
+
+### 🌟 Star this repository if you find it helpful!
+
+**SysLab** — *From Scheduling to Storage: Systems, Explained*
+
+Made with 💚 using React, TypeScript, and Tailwind CSS
+
+[⬆ Back to Top](#-syslab)
+
+</div>
