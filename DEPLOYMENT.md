@@ -1,88 +1,83 @@
-# Deployment Guide - Engineer's Control Panel
+# GitHub Pages Deployment Guide
 
-## Quick Start (Localhost)
+## 🚀 Deploying SysLab to GitHub Pages
 
-### Development Mode
+### Step 1: Enable GitHub Pages
+
+1. Go to your repository: https://github.com/Ram6023/Syslab
+2. Click on **Settings** → **Pages**
+3. Under **Source**, select **GitHub Actions**
+
+### Step 2: Push Changes
+
+The GitHub Actions workflow will automatically deploy your site when you push to the `main` branch.
 
 ```bash
-# Install dependencies (if not already done)
-npm install
-
-# Start development server
-npm run dev
+git add .
+git commit -m "feat: Add GitHub Pages deployment configuration"
+git push origin main
 ```
 
-The application will be available at:
-- **Local**: http://localhost:5173
-- **Network**: http://0.0.0.0:5173 (accessible from other devices on your network)
+### Step 3: Wait for Deployment
 
-### Production Build
+- Go to the **Actions** tab in your repository
+- Wait for the deployment workflow to complete (usually 2-3 minutes)
+- Your site will be live at: **https://ram6023.github.io/Syslab/**
+
+## 🔧 Configuration Details
+
+### Vite Configuration
+The `vite.config.ts` has been updated with:
+```typescript
+base: mode === 'production' ? '/Syslab/' : '/'
+```
+
+This ensures all assets are loaded from the correct path when deployed to GitHub Pages.
+
+### GitHub Actions Workflow
+Located at `.github/workflows/deploy.yml`, this workflow:
+- Triggers on every push to `main`
+- Installs dependencies
+- Builds the production bundle
+- Deploys to GitHub Pages
+
+## 🐛 Troubleshooting
+
+### Blank Page Issue
+If you see a blank page:
+1. Check that GitHub Pages is enabled in repository settings
+2. Verify the workflow completed successfully in the Actions tab
+3. Clear your browser cache and hard refresh (Ctrl+Shift+R)
+
+### 404 Errors
+If assets are not loading:
+1. Ensure the `base` path in `vite.config.ts` matches your repository name
+2. Repository name is case-sensitive: `/Syslab/` not `/syslab/`
+
+### Favicon 404
+The favicon.ico 404 error is normal and won't affect functionality. To fix it:
+1. Add a `favicon.ico` file to the `public` folder
+2. Or update `index.html` to reference a different icon
+
+## 📝 Manual Deployment (Alternative)
+
+If you prefer manual deployment:
 
 ```bash
-# Build for production
+# Build the project
 npm run build
 
-# Preview production build
-npm run preview
-# or
-npm run serve
+# The dist folder contains your production build
+# You can deploy this folder to any static hosting service
 ```
 
-Production build will be in the `dist/` directory.
+## ✅ Verification
 
-## Features
+Once deployed, verify your site at:
+**https://ram6023.github.io/Syslab/**
 
-✅ All 5 modules fully functional
-✅ Smooth animations and parallax effects
-✅ Custom cursor
-✅ Optimized build with code splitting
-✅ No lint errors
-✅ Production-ready
-
-## Module Status
-
-1. ✅ **CPU Scheduler** - 6 algorithms implemented
-2. ✅ **Memory Manager** - 3 page replacement algorithms
-3. ✅ **Network Simulator** - TCP-like protocol simulation
-4. ✅ **Compiler Playground** - Lexer, parser, AST, interpreter
-5. ✅ **Database Engine** - B-Tree indexing and query engine
-
-## Performance Optimizations
-
-- Code splitting (React vendor, UI vendor chunks)
-- Throttled scroll and mouse events
-- Memoized calculations
-- Optimized re-renders
-- Production minification
-
-## Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-
-## Troubleshooting
-
-### Port Already in Use
-If port 5173 is in use, Vite will automatically try the next available port.
-
-### Build Errors
-```bash
-# Clear cache and rebuild
-rm -rf node_modules dist
-npm install
-npm run build
-```
-
-### TypeScript Errors
-The project uses TypeScript with relaxed settings for faster development. All runtime code is correct.
-
-## Next Steps
-
-1. Run `npm run dev` to start development server
-2. Open http://localhost:5173 in your browser
-3. Explore all 5 modules
-4. Test simulations and visualizations
-5. Export metrics as JSON
-
-Enjoy exploring the Engineer's Control Panel! 🚀
+You should see:
+- ✅ SysLab header with gradient text
+- ✅ Interactive 3D background boxes
+- ✅ All 5 modules working correctly
+- ✅ Smooth animations and transitions
