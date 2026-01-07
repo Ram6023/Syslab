@@ -38,3 +38,4 @@ export function ParallaxBackground({ children, speed = 0.3 }: ParallaxBackground
     </motion.div>
   );
 }
+

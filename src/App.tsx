@@ -18,10 +18,14 @@ function App() {
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden cursor-none">
       <SmoothCursor />
 
-      {/* Interactive Background Boxes with 3D perspective */}
+      {/* Interactive Background Boxes with 3D perspective - Full Page Coverage */}
       <div className="fixed inset-0 w-full h-full overflow-hidden bg-background z-0">
-        <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
-        <Boxes />
+        {/* Radial gradient mask for smooth edges */}
+        <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)] pointer-events-none" />
+        {/* Full page boxes background */}
+        <div className="absolute inset-0 w-full h-full z-10">
+          <Boxes />
+        </div>
       </div>
 
       {/* Premium gradient overlays for depth */}
