@@ -39,7 +39,7 @@ function App() {
                   style={{ transition: "all 0.3s ease" }}
                 >
                   <img
-                    src="/syslab-text-logo.png"
+                    src={`${import.meta.env.BASE_URL}syslab-text-logo.png`}
                     alt="SysLab Logo"
                     className="w-96 md:w-[500px] lg:w-[800px] h-auto object-contain drop-shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:drop-shadow-[0_0_45px_rgba(34,197,94,0.8)] transition-all duration-300"
                   />
