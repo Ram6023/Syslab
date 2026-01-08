@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { CPUScheduler } from './components/modules/CPUScheduler/CPUScheduler'
 import { MemoryManager } from './components/modules/MemoryManager/MemoryManager'
 import { NetworkSimulator } from './components/modules/NetworkSimulator/NetworkSimulator'
@@ -13,6 +13,15 @@ import { motion } from 'framer-motion'
 
 function App() {
   const [tabValue, setTabValue] = useState('cpu')
+  const tabsRef = useRef<HTMLDivElement>(null)
+
+  const handleCardClick = (tab: string) => {
+    setTabValue(tab)
+    // Smooth scroll to tabs section
+    setTimeout(() => {
+      tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+  }
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden cursor-none">
       <SmoothCursor />
@@ -32,16 +41,51 @@ function App() {
               <div className="flex flex-col items-center justify-center gap-2 mb-4">
                 <motion.div
                   className="relative rounded-xl overflow-hidden"
-                  whileHover={{ scale: 1.08, rotate: 3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  style={{ transition: "all 0.3s ease" }}
+                  initial={{ opacity: 0, scale: 0.5, y: -50 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotate: [0, -2, 2, -2, 0],
+                    transition: {
+                      rotate: { duration: 0.5 },
+                      scale: { duration: 0.3 }
+                    }
+                  }}
                 >
-                  <img
+                  <motion.img
                     src={`${import.meta.env.BASE_URL}syslab-text-logo.png`}
                     alt="SysLab Logo"
                     className="w-96 md:w-[500px] lg:w-[800px] h-auto object-contain drop-shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:drop-shadow-[0_0_45px_rgba(34,197,94,0.8)] transition-all duration-300"
+                    animate={{
+                      y: [0, -10, 0],
+                      filter: [
+                        "drop-shadow(0 0 30px rgba(34,197,94,0.6))",
+                        "drop-shadow(0 0 40px rgba(34,197,94,0.8))",
+                        "drop-shadow(0 0 30px rgba(34,197,94,0.6))"
+                      ]
+                    }}
+                    transition={{
+                      y: {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      },
+                      filter: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
                   />
                 </motion.div>
                 <motion.p
@@ -57,7 +101,7 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 max-w-5xl mx-auto">
                 <motion.div
                   className="relative overflow-hidden rounded-xl border border-border/50 glass cursor-pointer group"
-                  onClick={() => setTabValue('cpu')}
+                  onClick={() => handleCardClick('cpu')}
                   role="button"
                   data-interactive
                   whileHover={{ scale: 1.02, y: -2 }}
@@ -72,7 +116,7 @@ function App() {
                 </motion.div>
                 <motion.div
                   className="relative overflow-hidden rounded-xl border border-border/50 glass cursor-pointer group"
-                  onClick={() => setTabValue('memory')}
+                  onClick={() => handleCardClick('memory')}
                   role="button"
                   data-interactive
                   whileHover={{ scale: 1.02, y: -2 }}
@@ -87,7 +131,7 @@ function App() {
                 </motion.div>
                 <motion.div
                   className="relative overflow-hidden rounded-xl border border-border/50 glass cursor-pointer group"
-                  onClick={() => setTabValue('network')}
+                  onClick={() => handleCardClick('network')}
                   role="button"
                   data-interactive
                   whileHover={{ scale: 1.02, y: -2 }}
@@ -131,7 +175,7 @@ function App() {
           </motion.header>
         </ParallaxSection>
 
-        <div className="px-6 py-8">
+        <div ref={tabsRef} className="px-6 py-8">
           <div className="max-w-7xl mx-auto">
             <Tabs value={tabValue} onValueChange={setTabValue} className="w-full">
               <motion.div
