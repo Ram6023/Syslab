@@ -6,10 +6,9 @@ import { NetworkSimulator } from './components/modules/NetworkSimulator/NetworkS
 import { CompilerPlayground } from './components/modules/CompilerPlayground/CompilerPlayground'
 import { DatabaseEngine } from './components/modules/DatabaseEngine/DatabaseEngine'
 import { SmoothCursor } from './components/ui/smooth-cursor'
-import { Boxes } from './components/ui/background-boxes'
 import { ParallaxSection } from './components/shared/ParallaxSection'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
-import { Cpu, HardDrive, Network, Code, Database, Sparkles, Zap, Layers } from 'lucide-react'
+import { Cpu, HardDrive, Network, Code, Database, Zap, Layers } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 function App() {
@@ -18,58 +17,44 @@ function App() {
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden cursor-none">
       <SmoothCursor />
 
-      {/* Interactive Background Boxes with 3D perspective - Full Page Coverage */}
-      <div className="fixed inset-0 w-full h-full overflow-hidden bg-background z-0">
-        {/* Radial gradient mask for smooth edges */}
-        <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)] pointer-events-none" />
-        {/* Full page boxes background */}
-        <div className="absolute inset-0 w-full h-full z-10">
-          <Boxes />
-        </div>
-      </div>
-
-      {/* Premium gradient overlays for depth */}
-      <div className="fixed inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none z-[1]"></div>
-      <div className="fixed inset-0 bg-gradient-to-t from-background/95 via-background/50 to-background/95 pointer-events-none z-[1]"></div>
+      {/* Simple gradient background - no grid */}
+      <div className="fixed inset-0 w-full h-full bg-gradient-to-br from-background via-background to-background/95 z-0" />
 
       <div className="relative z-10">
         <ParallaxSection speed={0.3}>
           <motion.header
-            className="relative px-6 pt-20 pb-16 border-b border-border/30 glass-strong"
+            className="relative px-6 py-8 min-h-screen flex items-center justify-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex flex-col items-center justify-center gap-2 mb-4">
                 <motion.div
-                  className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 backdrop-blur-sm"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="relative rounded-xl overflow-hidden"
+                  whileHover={{ scale: 1.08, rotate: 3 }}
                   transition={{ type: "spring", stiffness: 400 }}
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ transition: "all 0.3s ease" }}
                 >
-                  <Sparkles className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
+                  <img
+                    src="/syslab-text-logo.png"
+                    alt="SysLab Logo"
+                    className="w-96 md:w-[500px] lg:w-[800px] h-auto object-contain drop-shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:drop-shadow-[0_0_45px_rgba(34,197,94,0.8)] transition-all duration-300"
+                  />
                 </motion.div>
-                <div>
-                  <motion.h1
-                    className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    SysLab
-                  </motion.h1>
-                  <motion.p
-                    className="text-muted-foreground text-xl flex items-center gap-2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <Zap className="w-5 h-5 text-accent drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
-                    From Scheduling to Storage: Systems, Explained
-                  </motion.p>
-                </div>
+                <motion.p
+                  className="text-muted-foreground text-base md:text-lg flex items-center gap-2 text-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Zap className="w-5 h-5 text-accent drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
+                  From Scheduling to Storage: Systems, Explained
+                </motion.p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 max-w-5xl mx-auto">
                 <motion.div
                   className="relative overflow-hidden rounded-xl border border-border/50 glass cursor-pointer group"
                   onClick={() => setTabValue('cpu')}
@@ -78,10 +63,10 @@ function App() {
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="CPU scheduling" className="w-full h-40 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="CPU scheduling" className="w-full h-52 md:h-64 lg:h-72 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-4 text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Cpu className="w-4 h-4 text-primary" />
+                  <div className="absolute bottom-0 left-0 p-5 text-lg md:text-xl font-bold text-foreground flex items-center gap-3">
+                    <Cpu className="w-6 h-6 text-primary" />
                     CPU Scheduling
                   </div>
                 </motion.div>
@@ -93,10 +78,10 @@ function App() {
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=1200&q=80" alt="Memory management" className="w-full h-40 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=1200&q=80" alt="Memory management" className="w-full h-52 md:h-64 lg:h-72 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-4 text-sm font-semibold text-foreground flex items-center gap-2">
-                    <HardDrive className="w-4 h-4 text-accent" />
+                  <div className="absolute bottom-0 left-0 p-5 text-lg md:text-xl font-bold text-foreground flex items-center gap-3">
+                    <HardDrive className="w-6 h-6 text-accent" />
                     Memory Management
                   </div>
                 </motion.div>
@@ -108,14 +93,40 @@ function App() {
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network simulation" className="w-full h-40 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network simulation" className="w-full h-52 md:h-64 lg:h-72 object-cover opacity-50 group-hover:opacity-70 transition-opacity" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-4 text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Network className="w-4 h-4 text-info" />
+                  <div className="absolute bottom-0 left-0 p-5 text-lg md:text-xl font-bold text-foreground flex items-center gap-3">
+                    <Network className="w-6 h-6 text-info" />
                     Network Simulation
                   </div>
                 </motion.div>
               </div>
+
+              {/* Scroll to Explore Indicator */}
+              <motion.div
+                className="flex flex-col items-center gap-2 mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                <p className="text-muted-foreground text-xs uppercase tracking-wider font-semibold">Scroll to Explore</p>
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <svg
+                    className="w-5 h-5 text-primary"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                  </svg>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.header>
         </ParallaxSection>

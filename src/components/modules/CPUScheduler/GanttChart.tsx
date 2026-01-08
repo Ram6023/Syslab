@@ -12,12 +12,12 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
   }, [ganttChart]);
 
   const colors = [
-    'hsl(var(--terminal-green))',
-    'hsl(var(--terminal-cyan))',
-    'hsl(var(--terminal-yellow))',
-    'hsl(var(--terminal-blue))',
-    'hsl(var(--terminal-magenta))',
-    'hsl(var(--accent))',
+    'hsl(var(--viz-running))',     // neon green
+    'hsl(var(--viz-ready))',       // cyan
+    'hsl(var(--viz-waiting))',     // yellow/amber
+    'hsl(var(--info))',            // blue
+    'hsl(var(--accent))',          // cyan accent
+    'hsl(var(--primary))',         // primary green
   ];
 
   const getColor = (processId: string) => {
@@ -27,8 +27,26 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
 
   return (
     <div className="space-y-4">
-      <div className="relative h-24 bg-background border border-border rounded overflow-hidden">
+      <div className="relative h-32 bg-card/50 border border-border rounded-lg overflow-hidden backdrop-blur-sm">
         <svg width="100%" height="100%" className="absolute inset-0">
+          {/* Grid lines for time reference */}
+          {Array.from({ length: Math.ceil(maxTime / 5) + 1 }).map((_, i) => {
+            const x = (i * 5 / maxTime) * 100;
+            return (
+              <line
+                key={`grid-${i}`}
+                x1={`${x}%`}
+                y1="0"
+                x2={`${x}%`}
+                y2="100%"
+                stroke="hsl(var(--border))"
+                strokeWidth="1"
+                opacity="0.3"
+                strokeDasharray="2,2"
+              />
+            );
+          })}
+
           {ganttChart.map((entry, index) => {
             const x = (entry.startTime / maxTime) * 100;
             const width = ((entry.endTime - entry.startTime) / maxTime) * 100;
@@ -38,20 +56,21 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
               <g key={index}>
                 <rect
                   x={`${x}%`}
-                  y="20"
+                  y="30"
                   width={`${width}%`}
-                  height="40"
+                  height="50"
                   fill={color}
-                  opacity="0.8"
+                  opacity="0.9"
                   stroke={color}
                   strokeWidth="2"
+                  rx="4"
                 />
                 <text
                   x={`${x + width / 2}%`}
-                  y="45"
+                  y="60"
                   textAnchor="middle"
                   fill="hsl(var(--background))"
-                  fontSize="12"
+                  fontSize="14"
                   fontWeight="bold"
                   fontFamily="monospace"
                 >
@@ -59,22 +78,24 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
                 </text>
                 <text
                   x={`${x}%`}
-                  y="75"
+                  y="20"
                   textAnchor="middle"
-                  fill="hsl(var(--muted-foreground))"
-                  fontSize="10"
+                  fill="hsl(var(--foreground))"
+                  fontSize="11"
                   fontFamily="monospace"
+                  fontWeight="500"
                 >
                   {entry.startTime}
                 </text>
                 {index === ganttChart.length - 1 && (
                   <text
                     x={`${x + width}%`}
-                    y="75"
+                    y="20"
                     textAnchor="middle"
-                    fill="hsl(var(--muted-foreground))"
-                    fontSize="10"
+                    fill="hsl(var(--foreground))"
+                    fontSize="11"
                     fontFamily="monospace"
+                    fontWeight="500"
                   >
                     {entry.endTime}
                   </text>
@@ -89,10 +110,10 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
         {Array.from(new Set(ganttChart.map(e => e.processId))).map(processId => (
           <div key={processId} className="flex items-center gap-2">
             <div
-              className="w-4 h-4 rounded"
+              className="w-4 h-4 rounded border border-border"
               style={{ backgroundColor: getColor(processId) }}
             />
-            <span className="text-xs font-mono text-muted-foreground">{processId}</span>
+            <span className="text-xs font-mono text-foreground font-medium">{processId}</span>
           </div>
         ))}
       </div>
