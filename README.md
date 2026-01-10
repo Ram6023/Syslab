@@ -1,6 +1,6 @@
 <div align="center">
     
-# 🚀 SysLab
+# 🚀 SysLab 
 
 ### *From Scheduling to Storage: Systems, Explained*
 
