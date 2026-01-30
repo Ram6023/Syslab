@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./syslab-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SysLab — From Scheduling to Storage: Systems, Explained</title>
+  <meta name="description"
+    content="SysLab: Interactive systems engineering simulators covering CPU scheduling, memory management, network protocols, compiler internals, and database engines. From Scheduling to Storage: Systems, Explained." />
+  <meta name="author" content="SysLab" />
+
+  <meta property="og:title" content="SysLab — From Scheduling to Storage: Systems, Explained" />
+  <meta
+    content="Interactive systems engineering laboratory: CPU scheduling, memory management, network protocols, compiler internals, and database engines" />
+  <meta property="og:type" content="website" />
+
+  <!-- Start Single Page Apps for GitHub Pages -->
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+  <!-- End Single Page Apps for GitHub Pages -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="buildify-script-container"></div>
+  <script type="module" src="./src/main.tsx"></script>
+</body>
+
+</html>
