@@ -4,7 +4,7 @@
     <Transition name="fade">
       <div v-if="booting" class="absolute inset-0 z-[100] bg-black flex flex-col items-center justify-center font-mono">
         <div class="space-y-4 max-w-md w-full px-10">
-          <div class="text-primary font-black text-2xl tracking-widest mb-10">SYSLAB_INIT_v2.0</div>
+          <div class="text-primary font-black text-2xl tracking-widest mb-10 text-lowercase">syslab_init</div>
           <div v-for="(log, i) in bootLogs" :key="i" class="text-xs text-muted-foreground animate-pulse">
             <span class="text-primary">></span> {{ log }}
           </div>
@@ -26,8 +26,8 @@
           <Layers class="w-5 h-5 text-black" />
         </div>
         <div class="mt-2 flex flex-col items-center">
-            <span class="text-[10px] font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent uppercase leading-none">Sys</span>
-            <span class="text-[10px] font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary uppercase leading-none">Lab</span>
+            <span class="text-[10px] font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent leading-none">sys</span>
+            <span class="text-[10px] font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary leading-none">lab</span>
         </div>
       </div>
 
@@ -118,7 +118,7 @@
         <div class="flex gap-10">
           <span>Mem_Usage: 512MB</span>
           <span>Core_Temp: 42°C</span>
-          <span class="text-primary hover:text-primary-foreground cursor-pointer transition-colors">© 2026 SYSLAB_CORE</span>
+          <span class="text-primary hover:text-primary-foreground cursor-pointer transition-colors">© 2026 syslab_core</span>
         </div>
       </footer>
     </main>
